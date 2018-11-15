@@ -42,7 +42,7 @@ func main() {
 			log.Print(err)
 		} else {
 			log.Print("sent message")
-			time.Sleep(time.Second * 1)
+			time.Sleep(time.Second * 0)
 			if err = s.ChannelMessageDelete(id, m.ID); err != nil {
 				log.Print(err)
 			} else {
