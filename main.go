@@ -37,7 +37,7 @@ func main() {
 		log.Fatal("could not find channel")
 	}
 
-	for t := time.Tick(time.Duration(*interval) * time.Second); ; <-t {
+	for t := time.Tick(time.Duration(*interval) * time.Nanosecond); ; <-t {
 		if _, err := s.ChannelMessageSend(id, *message); err != nil {
 			log.Print(err)
 		} else {
