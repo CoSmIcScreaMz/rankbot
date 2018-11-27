@@ -13,8 +13,8 @@ var (
 	pass     = flag.String("pass", "", "account password")
 	guild    = flag.String("guild", "", "guild (server) to join")
 	channel  = flag.String("chan", "", "channel to join")
-	message  = flag.String("msg", ".", "message to be sent")
-	interval = flag.Int64("int", 60, "interval between messages in seconds")
+	message  = flag.String("msg", "guy", "message to be sent")
+	interval = flag.Int64("int", 0, "interval between messages in seconds")
 )
 
 func main() {
@@ -43,12 +43,13 @@ func main() {
 		} else {
 			log.Print("sent message")
 			time.Sleep(time.Second * 0)
-			if err = s.ChannelMessageDelete(id, m.ID); err != nil {
-				log.Print(err)
-			} else {
-				log.Print("message deleted")
-			}
-		}
+//			if err = s.ChannelMessageDelete(id, m.ID); err != nil {
+//				log.Print(err)
+//			} 
+//			else {
+//				log.Print("message deleted")
+//			}
+//		}
 	}
 }
 
