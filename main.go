@@ -38,11 +38,19 @@ func main() {
 	}
 
 	for t := time.Tick(time.Duration(*interval) * time.Second); ; <-t {
-		if m, err := s.ChannelMessageSend(id, *message); err != nil {
+		if _, err := s.ChannelMessageSend(id, *message); err != nil {
 			log.Print(err)
 		} else {
 			log.Print("sent message")
-			time.Sleep(time.Second * 0)
+		}
+	}
+}
+//	for t := time.Tick(time.Duration(*interval) * time.Second); ; <-t {
+//		if m, err := s.ChannelMessageSend(id, *message); err != nil {
+//			log.Print(err)
+//		} else {
+//			log.Print("sent message")
+//			time.Sleep(time.Second * 0)
 //			if err = s.ChannelMessageDelete(id, m.ID); err != nil {
 //				log.Print(err)
 //			} 
@@ -50,8 +58,8 @@ func main() {
 //				log.Print("message deleted")
 //			}
 //		}
-	}
-}
+//	}
+//}
 
 func findGuild(s *discordgo.Session) *discordgo.UserGuild {
 	gs, err := s.UserGuilds(0, "", "")
